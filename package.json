@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "name": "midgard",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/content": "^2.13.2",
+    "@nuxtjs/i18n": "^8.4.0",
+    "@nuxtjs/supabase": "^1.3.5",
+    "@supabase/supabase-js": "^2.45.1",
+    "hookable": "^5.5.3",
+    "lucide-vue-next": "^0.441.0",
+    "nuxt": "^3.12.4",
+    "nuxt-gtag": "^2.1.0",
+    "vue": "latest"
+  },
+  "devDependencies": {
+    "@nuxt/icon": "^1.4.3",
+    "@nuxt/image": "npm:@nuxt/image-nightly@latest",
+    "@nuxthq/studio": "^2.0.3",
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "@pinia/nuxt": "^0.5.2",
+    "@tailwindcss/typography": "^0.5.13",
+    "@vueuse/core": "^10.11.0",
+    "@vueuse/nuxt": "^10.11.0",
+    "daisyui": "^4.12.10"
+  }
+}
