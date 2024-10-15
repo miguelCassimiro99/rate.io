@@ -42,7 +42,7 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@nuxtjs/i18n",
     "nuxt-gtag",
-    "@nuxtjs/supabase",
+    // "@nuxtjs/supabase",
     "@nuxthq/studio",
     "@nuxt/content",
   ],
@@ -78,15 +78,15 @@ export default defineNuxtConfig({
   //   },
   // },
 
-  runtimeConfig: {
-    apiToken: process.env.API_TOKEN,
-    SUPABASE_URL: process.env.SUPABASE_URL,
-    SUPABASE_KEY: process.env.SUPABASE_KEY,
-  },
+  // runtimeConfig: {
+  //   apiToken: process.env.API_TOKEN,
+  //   SUPABASE_URL: process.env.SUPABASE_URL,
+  //   SUPABASE_KEY: process.env.SUPABASE_KEY,
+  // },
 
-  supabase: {
-    redirect: false,
-  },
+  // supabase: {
+  //   redirect: false,
+  // },
 
   tailwindcss: {
     cssPath: "~/assets/css/main.css",
