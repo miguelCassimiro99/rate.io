@@ -22,3 +22,9 @@ html {
   animation-timeline: view();
   animation-range: entry 0% cover 30%;
 }
+
+@layer components {
+  .effect-hover {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-600 transition-all
+  }
+}

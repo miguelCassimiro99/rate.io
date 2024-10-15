@@ -4,18 +4,18 @@ const OPEN_GRAPH = [
   {
     hid: "og:site_name",
     property: "og:site_name",
-    content: "Box Box Radio",
+    content: "Rate.io",
   },
   {
     hid: "og:description",
     property: "og:description",
     content:
-      "Explore the radios during the F1 sessions. In Box Box Radio you can see the transcriptions during sessions, follow more action and content. React and share with your friends. Important: the transcriptions are not official and can be not 100% correct.",
+      "Divida contas, mantenha amizades. Compartilhe facilmente custos de festas, viagens ou atividades em grupo.",
   },
   {
     hid: "og:title",
     property: "og:title",
-    content: "Box Box Radio",
+    content: "Rate.io",
   },
   {
     hid: "og:url",
@@ -25,13 +25,13 @@ const OPEN_GRAPH = [
   {
     hid: "og:image",
     property: "og:image",
-    content: "https://i.imgur.com/LdzDOi7.png",
+    content: "/public/rateio-image.png",
   },
   { property: "og:updated_time", content: new Date().toISOString() },
 ];
 
 export default defineNuxtConfig({
-  compatibilityDate: "2024-04-03",
+  compatibilityDate: "2024-10-15",
   devtools: { enabled: true },
   modules: [
     "@nuxtjs/tailwindcss",
@@ -49,7 +49,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: "Box Box Radio",
+      title: "Rate.io",
       htmlAttrs: {
         lang: "pt-BR",
       },
@@ -58,13 +58,13 @@ export default defineNuxtConfig({
           hid: "description",
           name: "description",
           content:
-            "Explore the radios during the F1 sessions. In Box Box Radio you can see the transcriptions during sessions, follow more action and content. React and share with your friends. Important: the transcriptions are not official and can be not 100% correct.",
+            "Divida contas, mantenha amizades. Compartilhe facilmente custos de festas, viagens ou atividades em grupo",
         },
         { hid: "author", name: "author", content: "Miguel Cassimiro" },
         {
           hid: "keywords",
           property: "keywords",
-          content: "f1, f1 radio, real-time, f1 driver, f1 nuxt",
+          content: "festas, roles, contas, dividir custos",
         },
         ...OPEN_GRAPH,
       ],
@@ -107,12 +107,17 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    experimental: {
-      websocket: true,
+    prerender: {
+      routes: ["/"],
     },
   },
 
   i18n: {
     vueI18n: "./i18n.config.ts",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n_redirected",
+      redirectOn: "root",
+    },
   },
 });

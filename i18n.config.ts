@@ -2,8 +2,75 @@ export default defineI18nConfig(() => ({
   legacy: false,
   locale: "en",
   messages: {
-    "pt-BR": {
-      welcome: 'Hello world'
+    en: {
+      welcome: "Welcome to Rate.io",
+      hero: {
+        title: "Separate expenses, not friendships",
+        description:
+          "Say goodbye to awkward conversations and complicated cost calculations",
+        features: [
+          {
+            title: "Add Participants",
+            description:
+              "Easily input the names of everyone involved in the shared expenses.",
+          },
+          {
+            title: "Enter Expenses",
+            description: "Add items, amounts, and who paid for each expense.",
+          },
+          {
+            title: "Get Transfer Recommendations",
+            description:
+              "Receive clear instructions on who needs to pay whom and how much.",
+          },
+        ],
+        howItWorksTitle: "How it works",
+        howItWorks: {
+          1: "Create a new event and add all participants.",
+          2: "Enter each expense, including the item name, amount, and who paid for it.",
+          3: 'Click "Calculate Split" to see the results.',
+          4: "Review the transfer recommendations to settle all debts.",
+          5: "Share the results with your friends and settle up!",
+        },
+        call: "Ready to simplify your expense sharing?",
+        cta: "Get Started",
+      },
+      "pt-BR": {
+        welcome: "Hello world",
+
+        hero: {
+          title: "Separe gastos, não amizades",
+          description:
+            "Diga adeus a conversas embaraçosas e calculos complicados sobre custos",
+          features: [
+            {
+              title: "Adicionar Participantes",
+              description:
+                "Facilmente insira os nomes de todos os envolvidos nos gastos compartilhados.",
+            },
+            {
+              title: "Inserir Gastos",
+              description:
+                "Adicione itens, quantidades e quem pagou por cada gasto.",
+            },
+            {
+              title: "Obter Recomendações de Transferência",
+              description:
+                "Receba instruções claras sobre quem precisa pagar quem e quanto.",
+            },
+          ],
+          howItWorksTitle: "Como funciona",
+          howItWorks: {
+            1: "Crie um novo evento e adicione todos os participantes.",
+            2: "Insira cada gasto, incluindo o nome do item, quantidade e quem pagou.",
+            3: 'Clique em "Calcular Divisão" para ver os resultados.',
+            4: "Reveja as recomendações de transferência para resolver todos os dívidas.",
+            5: "Compartilhe os resultados com seus amigos e resolva!",
+          },
+          call: "Precisa saber quem vai te fazer o Pix?",
+          cta: "Novo rolê",
+        },
+      },
     },
   },
   plugins: {
