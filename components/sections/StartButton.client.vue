@@ -3,7 +3,7 @@
     {{ props.label }}
   </button>
 
-  <Modal :open="isModalOpen" title="Split bill" @close="isModalOpen = false">
+  <Modal :open="isModalOpen" :title="$t('modal.title')" @close="isModalOpen = false">
     <template #modal-content>
       <Expense />
     </template>

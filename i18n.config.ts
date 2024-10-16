@@ -35,41 +35,84 @@ export default defineI18nConfig(() => ({
         call: "Ready to simplify your expense sharing?",
         cta: "Get Started",
       },
-      "pt-BR": {
-        welcome: "Hello world",
 
-        hero: {
-          title: "Separe gastos, não amizades",
-          description:
-            "Diga adeus a conversas embaraçosas e calculos complicados sobre custos",
-          features: [
-            {
-              title: "Adicionar Participantes",
-              description:
-                "Facilmente insira os nomes de todos os envolvidos nos gastos compartilhados.",
-            },
-            {
-              title: "Inserir Gastos",
-              description:
-                "Adicione itens, quantidades e quem pagou por cada gasto.",
-            },
-            {
-              title: "Obter Recomendações de Transferência",
-              description:
-                "Receba instruções claras sobre quem precisa pagar quem e quanto.",
-            },
-          ],
-          howItWorksTitle: "Como funciona",
-          howItWorks: {
-            1: "Crie um novo evento e adicione todos os participantes.",
-            2: "Insira cada gasto, incluindo o nome do item, quantidade e quem pagou.",
-            3: 'Clique em "Calcular Divisão" para ver os resultados.',
-            4: "Reveja as recomendações de transferência para resolver todos os dívidas.",
-            5: "Compartilhe os resultados com seus amigos e resolva!",
+      modal: {
+        title: "New divide",
+        back: "Back",
+        participantsInfo: "Members",
+        items: "Items",
+        calculate: "Calculate",
+        inputEventName: "Event Name",
+        inputEventNamePlaceholder: "Party on...",
+        inputMembers: "Members",
+        inputMembersPlaceholder: "John doe, ...",
+
+        inputExpenseName: "Expense",
+        inputPaidBy: "Payd by",
+        btnAddOrRemove: "Add or remove participants",
+        btnAddItem: "Add item",
+        btnCreateItem: "Create item",
+        verifyPayingMessage: "One or more items without 'Payd By'",
+        resultTitle: "Result",
+        resultMessage:
+          "{ debtorName } must transfer ${amountValue}, to { creditorName }",
+      },
+    },
+    "pt-BR": {
+      welcome: "Hello world",
+
+      hero: {
+        title: "Separe gastos, não amizades",
+        description:
+          "Diga adeus a conversas embaraçosas e calculos complicados sobre custos",
+        features: [
+          {
+            title: "Adicionar Participantes",
+            description:
+              "Facilmente insira os nomes de todos os envolvidos nos gastos compartilhados.",
           },
-          call: "Precisa saber quem vai te fazer o Pix?",
-          cta: "Novo rolê",
+          {
+            title: "Inserir Gastos",
+            description:
+              "Adicione itens, quantidades e quem pagou por cada gasto.",
+          },
+          {
+            title: "Obter Recomendações de Transferência",
+            description:
+              "Receba instruções claras sobre quem precisa pagar quem e quanto.",
+          },
+        ],
+        howItWorksTitle: "Como funciona",
+        howItWorks: {
+          1: "Crie um novo evento e adicione todos os participantes.",
+          2: "Insira cada gasto, incluindo o nome do item, quantidade e quem pagou.",
+          3: 'Clique em "Calcular Divisão" para ver os resultados.',
+          4: "Reveja as recomendações de transferência para resolver todos os dívidas.",
+          5: "Compartilhe os resultados com seus amigos e resolva!",
         },
+        call: "Precisa saber quem vai te fazer o Pix?",
+        cta: "Novo rolê",
+      },
+      modal: {
+        title: "Novo rolê",
+        back: "Voltar",
+        participantsInfo: "Membros",
+        items: "Itens",
+        calculate: "Calcular",
+        inputEventName: "Nome do evento",
+        inputEventNamePlaceholder: "Festa...",
+        inputMembers: "Membros",
+        inputMembersPlaceholder: "João, ...",
+
+        inputExpenseName: "Gasto",
+        inputPaidBy: "Pago por",
+        btnAddOrRemove: "Adicionar ou remover membros",
+        btnAddItem: "Adicionar item",
+        btnCreateItem: "Criar item",
+        verifyPayingMessage: "Um ou mais itens sem 'Pago Por'",
+        resultTitle: "Resultado",
+        resultMessage:
+          "{ debtorName } deve transferir ${amountValue}, para { creditorName }",
       },
     },
   },

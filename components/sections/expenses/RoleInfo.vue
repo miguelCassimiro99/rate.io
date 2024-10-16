@@ -3,11 +3,11 @@
     class="py-2 text-base leading-6 space-y-4 text-gray-200 sm:text-lg sm:leading-7 w-full"
   >
     <div class="flex flex-col items-start">
-      <label class="leading-loose">Event Name</label>
+      <label class="leading-loose">{{ $t('modal.inputEventName') }}</label>
       <input
         type="text"
         class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
-        placeholder="Event name"
+        :placeholder="$t('modal.inputEventNamePlaceholder')"
         v-model="roleStore.name"
       />
     </div>
@@ -18,12 +18,12 @@
       class="py-3 text-base leading-6 space-y-4 text-gray-200 sm:text-lg sm:leading-7 w-full"
     >
       <div class="flex flex-col items-start w-full">
-        <label class="leading-loose">Participants</label>
+        <label class="leading-loose">{{ $t('modal.inputMembers') }}</label>
         <div class="flex w-full gap-3">
           <input
             type="text"
             class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
-            placeholder="Add participant"
+            :placeholder="$t('modal.inputMembersPlaceholder')"
             v-model="participant"
           />
           <button @click="addParticipant" class="px-4 py-2 bg-blue-600 transition-all hover:bg-blue-700 text-white rounded-md">

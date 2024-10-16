@@ -10,20 +10,20 @@
           v-model="expense.name"
           type="text"
           class=" px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
-          placeholder="Nome"
+          :placeholder="$t('modal.inputExpenseName')"
         />
         <input
           v-model="expense.value"
           type="number"
           class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
           placeholder="Valor"
+          min="0"
         />
 
         <select
           v-model="expense.paidBy"
           class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
         >
-          <option value="">Paid by</option>
           <option
             v-for="participant in participants"
             :key="participant"
@@ -48,7 +48,7 @@
             role="button"
             class="btn btn-xs border-customPink-300 text-customPink-300 btn-outline"
           >
-            Add or remove participants
+            {{ $t('modal.btnAddOrRemove') }}
           </div>
           <ul
             tabindex="0"
@@ -71,7 +71,7 @@
       @click="handleAddConsume()"
       class="px-4 py-2 bg-blue-600 transition-all hover:bg-blue-700 text-white rounded-md w-full"
     >
-      {{ expenses.length > 0 ? "Adicionar item" : "Criar item" }}
+      {{ expenses.length > 0 ? $t('modal.btnAddItem') : $t('modal.btnCreateItem') }}
     </button>
   </div>
 </template>
@@ -92,7 +92,7 @@ const handleAddConsume = () => {
 
   addExpense({
     consumers: newExpenseConsumers,
-    paidBy: "",
+    paidBy: participants[0],
     name: "",
     value: 0.0,
   });
