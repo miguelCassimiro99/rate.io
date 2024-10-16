@@ -46,7 +46,7 @@
       </div>
 
       <button
-        :disabled="!expenses || !participants"
+        :disabled="!expenses.length || !participants.length"
         @click="handleCalculateSplit"
         class="disabled:opacity-30 px-4 py-2 bg-gradient-to-r from-customOrange-500 to-customPink-500 transition-all hover:bg-customPink-500 text-white rounded-md w-full"
       >
@@ -54,21 +54,33 @@
       </button>
     </div>
 
-    <div class="text-left" v-if="currentStep === 2 && resultMessage.length">
-      <h2 class="text-left text-xl font-semibold mt-6" >{{ $t("modal.resultTitle") }}:</h2>
-      <ul class="list-disc">
-        <li class="my-2" v-for="result in resultMessage" :key="result">
-          {{ result }}
-        </li>
-      </ul>
+    <div class="text-left min-h-[15vh] flex flex-col justify-between gap-12 overflow-hidden" v-if="currentStep === 2 && resultMessage.length">
+      <div>
+        <h2 class="text-left text-xl font-semibold mt-6">
+          {{ $t("modal.resultTitle") }}:
+        </h2>
+        <ul class="list-disc">
+          <li class="my-2" v-for="result in resultMessage" :key="result">
+            {{ result }}
+          </li>
+        </ul>
+      </div>
+      <div class="flex justify-center items-center gap-2">
+        <button @click="currentStep = 1" class="btn btn-sm rounded-lg flex-1 btn-info text-gray-100">{{ $t("modal.actions.edit") }}</button>
+        <button @click="shareOnWhatsapp" class="btn btn-sm rounded-lg flex-1 btn-success">
+          <Icon name="mdi:whatsapp" class="h-6 w-6 text-gray-100" />
+        </button>
+        <button @click="startOver" class="btn btn-sm rounded-lg border-none text-gray-100 flex-1 bg-gradient-to-r from-customOrange-500 to-customPink-500">{{ $t("modal.actions.startOver") }}</button>
+      </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import RoleInfo from "./expenses/RoleInfo.vue";
 import Items from "./expenses/Items.vue";
-import { useRoleStore } from "~/store/role";
+import { useRoleStore, type RoleType } from "~/store/role";
 import { useI18n } from "#imports";
+const { gtag } = useGtag();
 
 const { t } = useI18n();
 
@@ -78,14 +90,33 @@ interface IParticipantDebt {
 }
 
 const { expenses, participants } = useRoleStore();
-
 const currentStep = ref<1 | 2>(1);
-
 const resultMessage = ref<string[]>([]);
+const store = useRoleStore();
+
+const emptyRole = {
+  name: "",
+  participants: [],
+  expenses: []
+} as RoleType
+
+const startOver = () => {
+  currentStep.value = 1;
+  resultMessage.value = [];
+
+  store.name = "";
+  store.participants = [];
+  store.expenses = [];
+}
 
 const handleCalculateSplit = () => {
   resultMessage.value = [];
   currentStep.value = 2;
+  gtag("event", "calculate", {
+    app_name: "Rate.io",
+    screen_name: "index",
+    value: "calculate_costs",
+  });
 
   let balances: { [key: string]: number } = {};
 
@@ -136,12 +167,12 @@ const handleCalculateSplit = () => {
     // );
 
     resultMessage.value.push(
-      t('modal.resultMessage', {
+      t("modal.resultMessage", {
         debtorName: debtor.name,
         amountValue: amount.toFixed(2),
-        creditorName: creditor.name
+        creditorName: creditor.name,
       })
-    )
+    );
 
     // Atualiza os saldos após a transferência
     debtor.balance += amount;
@@ -156,5 +187,20 @@ const handleCalculateSplit = () => {
     resultMessage.value.push("Todos os pagamentos estão equilibrados.");
   }
 };
+
+const shareOnWhatsapp = () => {
+  gtag("event", "share_split", {
+    app_name: "Rate.io",
+    screen_name: "index",
+    value: "share",
+  });
+
+  const formatted = `Rate-io: \n\n${resultMessage.value.join(`;\n`)}
+  `
+
+  const encodedText = encodeURIComponent(formatted);
+  const url = `https://wa.me/?text=${encodedText}`;
+  window.open(url, "_blank");
+}
 </script>
 <style scoped></style>

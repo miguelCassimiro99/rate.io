@@ -20,7 +20,7 @@ const OPEN_GRAPH = [
   {
     hid: "og:url",
     property: "og:url",
-    content: "https://www.boxbox-radio.com",
+    content: "https://rate-io.vercel.app/",
   },
   {
     hid: "og:image",
@@ -71,12 +71,12 @@ export default defineNuxtConfig({
     },
   },
 
-  // gtag: {
-  //   id: "G-FTN4DTQENC",
-  //   config: {
-  //     page_title: "Box Box Radio",
-  //   },
-  // },
+  gtag: {
+    id: "G-85YM3YBRXK",
+    config: {
+      page_title: "Rate.io - Divida Custos, não amizades",
+    },
+  },
 
   // runtimeConfig: {
   //   apiToken: process.env.API_TOKEN,

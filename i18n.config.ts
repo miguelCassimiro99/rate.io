@@ -1,6 +1,6 @@
 export default defineI18nConfig(() => ({
   legacy: false,
-  locale: "en",
+  locale: "pt-BR",
   messages: {
     en: {
       welcome: "Welcome to Rate.io",
@@ -55,7 +55,11 @@ export default defineI18nConfig(() => ({
         verifyPayingMessage: "One or more items without 'Payd By'",
         resultTitle: "Result",
         resultMessage:
-          "{ debtorName } must transfer ${amountValue}, to { creditorName }",
+          "{ debtorName } must transfer ${amountValue} to { creditorName }",
+        actions: {
+          edit: "Edit",
+          startOver: "Start over"
+        }
       },
     },
     "pt-BR": {
@@ -86,7 +90,7 @@ export default defineI18nConfig(() => ({
         howItWorks: {
           1: "Crie um novo evento e adicione todos os participantes.",
           2: "Insira cada gasto, incluindo o nome do item, quantidade e quem pagou.",
-          3: 'Clique em "Calcular Divisão" para ver os resultados.',
+          3: 'Clique em "Calcular" para ver os resultados.',
           4: "Reveja as recomendações de transferência para resolver todos os dívidas.",
           5: "Compartilhe os resultados com seus amigos e resolva!",
         },
@@ -112,7 +116,11 @@ export default defineI18nConfig(() => ({
         verifyPayingMessage: "Um ou mais itens sem 'Pago Por'",
         resultTitle: "Resultado",
         resultMessage:
-          "{ debtorName } deve transferir ${amountValue}, para { creditorName }",
+          "{ debtorName } deve transferir ${amountValue} para { creditorName }",
+          actions: {
+            edit: "Editar",
+            startOver: "Começar de novo"
+          }
       },
     },
   },
